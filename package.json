@@ -1,0 +1,15 @@
+{
+  "name": "meeting",
+  "version": "0.0.0",
+  "description": "meeting system for scdc",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "webapp",
+    "meeting"
+  ],
+  "author": "zhangchunzhe@scdc.sh.cn",
+  "license": "ISC"
+}
