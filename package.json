@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "meeting system for scdc",
   "main": "index.js",
+  "repository": "https://github.com/sepmein/meeting.git",
   "scripts": {
     "test": "mocha"
   },
@@ -15,5 +16,12 @@
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-google": "^0.6.0"
+  },
+  "dependencies": {
+    "koa": "^1.2.4",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^5.4.0",
+    "mongodb": "^2.2.9",
+    "userjs": "^0.5.0"
   }
 }
