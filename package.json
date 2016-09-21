@@ -18,7 +18,9 @@
     "eslint-config-google": "^0.6.0"
   },
   "dependencies": {
+    "json-web-token": "^2.0.3",
     "koa": "^1.2.4",
+    "koa-allow-methods": "^0.1.0",
     "koa-cors": "^0.0.16",
     "koa-router": "^5.4.0",
     "mongodb": "^2.2.10",
