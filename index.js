@@ -14,7 +14,7 @@ const CONF = require('./configuration');
 const COLLECTION = CONF.main.collection;
 const PORT = CONF.main.port;
 const AUTH = CONF.auth;
-authServer.run(CONF.auth);
+authServer.run(AUTH);
 
 app.use(cors());
 app.use(allowMethods(['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']));
