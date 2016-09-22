@@ -15,6 +15,24 @@ const COLLECTION = CONF.main.collection;
 const PORT = CONF.main.port;
 const AUTH = CONF.auth;
 authServer.run(AUTH);
+// meeting
+router.get('/meeting', function* (next) {
+
+});
+router.post('/meeting', function* (next) {
+
+});
+router.put('/meeting', function* (next) {
+
+});
+router.del('./meeting', function* (next) {
+
+});
+// meetings
+router.get('/meetings', function* (next) {
+
+});
+
 
 app.use(cors());
 app.use(allowMethods(['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']));
