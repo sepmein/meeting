@@ -1,8 +1,8 @@
 'use strict';
 
 let authServer = require('userjs');
-let app = require('koa');
-let router = require('koa-router');
+let app = require('koa')();
+let router = require('koa-router')();
 let Mongo = require('mongodb');
 let jwt = require('json-web-token');
 let cors = require('koa-cors');
@@ -14,7 +14,7 @@ const CONF = require('./configuration');
 const COLLECTION = CONF.main.collection;
 const PORT = CONF.main.port;
 const AUTH = CONF.auth;
-authServer.run(AUTH);
+authServer(AUTH);
 // meeting
 router.get('/meeting', function* (next) {
 
@@ -39,9 +39,10 @@ app.use(allowMethods(['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']));
 app.use(parseBody);
 app.use(router.routes());
 
-Mongo.connect('mongodb://local:27017/' + COLLECTION, (err, db) => {
+Mongo.connect('mongodb://local:27017/' + COLLECTION, function(err, db) {
   if (err) {
-    app.throw(500);
+    // app.throw(500);
+    throw err;
   }
   app.context.CONFIGURATION = CONF;
   app.context.db = db;
