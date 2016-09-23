@@ -14,8 +14,16 @@ const CONF = require('./configuration');
 const COLLECTION = CONF.main.collection;
 const PORT = CONF.main.port;
 const AUTH = CONF.auth;
-authServer.run(AUTH);
 
+// auth server
+authServer.run(AUTH);
+// router
+router.get('/', function * (next) {
+    this.body = 'hello';
+    yield next;
+});
+
+// middlewares
 app.use(cors());
 app.use(allowMethods(['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']));
 app.use(parseBody);
