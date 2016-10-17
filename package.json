@@ -25,6 +25,6 @@
     "koa-cors": "^0.0.16",
     "koa-router": "^5.4.0",
     "mongodb": "^2.2.10",
-    "userjs": "^0.5.3"
+    "userjs": "^0.7.0"
   }
 }
