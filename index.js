@@ -10,14 +10,12 @@ let allowMethods = require('koa-allow-methods');
 let parseBody = require('./middlewares/parseBody');
 
 // configuration
-const CONF = require('./configuration');
+const CONF = require('./config');
 const COLLECTION = CONF.main.collection;
 const PORT = CONF.main.port;
 const AUTH = CONF.auth;
 
 // auth server
-authServer.run(AUTH);
-
 authServer(AUTH);
 // meeting
 // router
@@ -50,7 +48,6 @@ app.use(router.routes());
 
 Mongo.connect('mongodb://local:27017/' + COLLECTION, function (err, db) {
   if (err) {
-    // app.throw(500);
     throw err;
   }
   app.context.CONFIGURATION = CONF;

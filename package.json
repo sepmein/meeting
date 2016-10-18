@@ -1,6 +1,6 @@
 {
   "name": "meeting",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "meeting system for scdc",
   "main": "index.js",
   "repository": "https://github.com/sepmein/meeting.git",
@@ -25,6 +25,6 @@
     "koa-cors": "^0.0.16",
     "koa-router": "^5.4.0",
     "mongodb": "^2.2.10",
-    "userjs": "^0.7.0"
+    "userjs": "^0.7.4"
   }
 }
