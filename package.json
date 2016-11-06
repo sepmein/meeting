@@ -1,6 +1,6 @@
 {
   "name": "meeting",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "meeting system for scdc",
   "main": "index.js",
   "repository": "https://github.com/sepmein/meeting.git",
@@ -14,7 +14,7 @@
   "author": "zhangchunzhe@scdc.sh.cn",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^3.4.0",
+    "eslint": "^3.9.1",
     "eslint-config-google": "^0.6.0"
   },
   "dependencies": {
@@ -23,8 +23,9 @@
     "koa": "^1.2.4",
     "koa-allow-methods": "^0.1.0",
     "koa-cors": "^0.0.16",
+    "koa-parse-bearer-token": "^0.1.0",
     "koa-router": "^5.4.0",
-    "mongodb": "^2.2.10",
-    "userjs": "^0.7.4"
+    "mongodb": "^2.2.11",
+    "userjs": "^0.8.2"
   }
 }

@@ -8,7 +8,7 @@ let jwt = require('json-web-token');
 let cors = require('koa-cors');
 let allowMethods = require('koa-allow-methods');
 let parseBody = require('./middlewares/parseBody');
-
+let parseBearerToken = require('koa-parse-bearer-token');
 // configuration
 const CONF = require('./config');
 const COLLECTION = CONF.main.collection;
@@ -26,7 +26,7 @@ router.get('/', function* (next) {
 router.get('/meeting', function* (next) {
 
 });
-router.post('/meeting', function* (next) {
+router.post('/meeting', parseBearerToken, function* (next) {
 
 });
 router.put('/meeting', function* (next) {
@@ -46,7 +46,7 @@ app.use(allowMethods(['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']));
 app.use(parseBody);
 app.use(router.routes());
 
-Mongo.connect('mongodb://local:27017/' + COLLECTION, function (err, db) {
+Mongo.connect('mongodb://localhost:27017/' + COLLECTION, function (err, db) {
   if (err) {
     throw err;
   }
