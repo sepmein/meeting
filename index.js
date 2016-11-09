@@ -1,10 +1,10 @@
 'use strict';
 
+let Mongo = require('mongodb');
+let ObjectId = require('mongodb').ObjectId;
 let authServer = require('userjs');
 let app = require('koa')();
 let router = require('koa-router')();
-let Mongo = require('mongodb');
-let jwt = require('json-web-token');
 let cors = require('koa-cors');
 let allowMethods = require('koa-allow-methods');
 let parseBody = require('./middlewares/parseBody');
@@ -27,7 +27,32 @@ router.get('/meeting', function* (next) {
 
 });
 router.post('/meeting', parseBearerToken, function* (next) {
-
+  const meeting = this.request.body;
+  console.log(meeting);
+});
+router.post('/plan', parseBearerToken, function* (next) {
+  const plan = this.request.body;
+  const token = this.request.token;
+  const collection = this.db.collection('plan');
+  console.log(plan);
+  let {type, room, date} = plan;
+  if (!type) {
+    this.throw(400, 'missed meeting type');
+  }
+  let result;
+  try {
+    result = yield collection.insert({
+      type,
+      room,
+      date,
+      uid: new ObjectId(token._id),
+      added: new Date(Date.now())
+    });
+  } catch (e) {
+    this.throw(e);
+  }
+  this.body = result;
+  yield next;
 });
 router.put('/meeting', function* (next) {
 
@@ -50,7 +75,7 @@ Mongo.connect('mongodb://localhost:27017/' + COLLECTION, function (err, db) {
   if (err) {
     throw err;
   }
-  app.context.CONFIGURATION = CONF;
+  app.context.CONFIGURATION = CONF.main;
   app.context.db = db;
   app.context.collection = db.collection(COLLECTION);
   app.listen(PORT);

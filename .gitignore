@@ -3,3 +3,4 @@ config.js
 configuration.js
 npm-debug.log
 .idea
+typings
